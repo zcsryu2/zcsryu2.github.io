@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      666 字
+      714 字
     </span>
   
 
@@ -289,16 +289,30 @@
 <h2 id="思考题2"><a href="#思考题2" class="headerlink" title="思考题2"></a>思考题2</h2><h3 id="（1）要执行多久"><a href="#（1）要执行多久" class="headerlink" title="（1）要执行多久"></a>（1）要执行多久</h3><ul>
 <li>cpu_exec函数的参数是uint32_t，即无符号整型，而传入的-1因会导致溢出而成为最大的无符号整型数，保证能够执行完输入的所有指令。  </li>
 </ul>
-<h3 id="（2）框架代码中定义-wp-pool-等变量的时候使用了关键字-static，static-在此处的含义是什么-为什么要在此处使用它"><a href="#（2）框架代码中定义-wp-pool-等变量的时候使用了关键字-static，static-在此处的含义是什么-为什么要在此处使用它" class="headerlink" title="（2）框架代码中定义 wp_pool 等变量的时候使用了关键字 static，static 在此处的含义是什么? 为什么要在此处使用它?"></a>（2）框架代码中定义 wp_pool 等变量的时候使用了关键字 static，static 在此处的含义是什么? 为什么要在此处使用它?</h3><ul>
-<li>static表示wp_pool为静态全局变量，此处使用static是为了避免wp_pool在程序运行中被误修改。  </li>
+<h3 id="（2）为什么要使用static"><a href="#（2）为什么要使用static" class="headerlink" title="（2）为什么要使用static"></a>（2）为什么要使用static</h3><ul>
+<li><p>Q：框架代码中定义 wp_pool 等变量的时候使用了关键字 static，static 在此处的含义是什么? 为什么要在此处使用它?  </p>
+</li>
+<li><p>A： static表示wp_pool为静态全局变量，此处使用static是为了避免wp_pool在程序运行中被误修改。  </p>
+</li>
 </ul>
-<h2 id="思考题3：读手册的方法"><a href="#思考题3：读手册的方法" class="headerlink" title="思考题3：读手册的方法"></a>思考题3：读手册的方法</h2><ul>
-<li><p>在目录中检索register和flag发现2.3.4.1节和附录c有提及相关内容，查阅得：CF为进位标志，如果运算导致最高位产生进位或者借位则为1.否则为0。  </p>
+<h2 id="思考题3：读手册的方法"><a href="#思考题3：读手册的方法" class="headerlink" title="思考题3：读手册的方法"></a>思考题3：读手册的方法</h2><ol>
+<li><ul>
+<li>Q： EFLAGS 寄存器中的 CF 位是什么意思  </li>
+<li>A: 在目录中检索register和flag发现2.3.4.1节和附录c有提及相关内容，查阅得：CF为进位标志，如果运算导致最高位产生进位或者借位则为1.否则为0。  </li>
+</ul>
 </li>
-<li><p>检索目录得ModR/M相关内容在17.2.1节，查阅可知ModR/M字节包括mod、reg、r/m三方面内容,分别表示索引类型或者寄存器编号、寻址模式编码等信息。  </p>
+<li><ul>
+<li>Q: ModR/M 字节是什么</li>
+<li>A: 检索目录得ModR/M相关内容在17.2.1节，查阅可知ModR/M字节包括mod、reg、r/m三方面内容,分别表示索引类型或者寄存器编号、寻址模式编码等信息。  </li>
+</ul>
 </li>
-<li><p>检索目录在12.2.2.11节内找到mov指令相关内容，查阅可知格式为DEST←SRC  </p>
+<li><ul>
+<li>Q: mov 指令的具体格式是怎么样的</li>
+<li>A: 检索目录在12.2.2.11节内找到mov指令相关内容，查阅可知格式为DEST←SRC  </li>
+</ul>
 </li>
+</ol>
+<ul>
 <li><p>shell命令：  </p>
 <p>  find . -name “*[.h|.cpp]” | xargs wc -l<br>  使用上述命令，得代码共129281行    </p>
 </li>
