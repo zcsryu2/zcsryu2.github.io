@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>NEMU PA1 菜鸡记录</title>
+    <link href="/2021/09/21/NEMU_PA1/"/>
+    <url>/2021/09/21/NEMU_PA1/</url>
+    
+    <content type="html"><![CDATA[<h1 id="实验进度表"><a href="#实验进度表" class="headerlink" title="实验进度表"></a><strong>实验进度表</strong></h1><table><thead><tr><th>任务序号</th><th>任务内容</th><th>完成情况</th></tr></thead><tbody><tr><td>必做任务1</td><td>实现正确的寄存器结构体</td><td>已完成</td></tr><tr><td>必做任务2</td><td>实现单步执行、打印寄存器、扫描内存</td><td>已完成</td></tr><tr><td>必做任务3</td><td>实现算术表达式的词法分析</td><td>已完成</td></tr><tr><td>必做任务4</td><td>实现算术表达式的递归求值</td><td>已完成</td></tr><tr><td>选做任务1</td><td>实现带有负数的算术表达式的求值</td><td>已完成</td></tr><tr><td>必做任务5</td><td>实现更复杂的表达式求值</td><td>已完成</td></tr><tr><td>选做任务2</td><td>实现指针解引用</td><td>已完成</td></tr><tr><td>必做任务6</td><td>实现监视点池的管理</td><td>已完成</td></tr><tr><td>必做任务7</td><td>实现监视点</td><td>已完成</td></tr></tbody></table><h1 id="必做题"><a href="#必做题" class="headerlink" title="必做题"></a><strong>必做题</strong></h1><h2 id="必做任务1"><a href="#必做任务1" class="headerlink" title="必做任务1"></a><strong>必做任务1</strong></h2><h1 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a><strong>思考题</strong></h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>Notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NEMU</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2021/09/21/hello-world/"/>
     <url>/2021/09/21/hello-world/</url>
@@ -34,31 +59,6 @@
     <tags>
       
       <tag>闲话</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>The First One</title>
-    <link href="/2021/07/03/NEMU_PA1/"/>
-    <url>/2021/07/03/NEMU_PA1/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    <categories>
-      
-      <category>Notes</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>NEMU</tag>
       
     </tags>
     
