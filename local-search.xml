@@ -21,9 +21,46 @@
     <link href="/2021/07/03/The-First-One/"/>
     <url>/2021/07/03/The-First-One/</url>
     
-    <content type="html"><![CDATA[<p>这是王珣阿瓜的第一篇博客，自然要题写几个大字</p><p>hello, world!<br>(假装有书法，因为不知道如何插入图片)</p><p>以上</p>]]></content>
+    <content type="html"><![CDATA[<p>这是王珣的第一篇博客，自然要题写几个大字</p><p>hello, world!  </p><p><img src="https://raw.githubusercontent.com/zcsryu2/BlogImages/main/hello_world_movie.jpg" alt="这是图片" title="hello world"><br>（划掉）</p><p><img src="https://raw.githubusercontent.com/zcsryu2/BlogImages/main/hello_world.jpg" alt="这是图片" title="hello, world"></p><p>以上</p>]]></content>
     
     
+    <categories>
+      
+      <category>Diary</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>闲话</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>The First One</title>
+    <link href="/2021/07/03/NEMU_PA1/"/>
+    <url>/2021/07/03/NEMU_PA1/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>Notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>NEMU</tag>
+      
+    </tags>
     
   </entry>
   
