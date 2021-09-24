@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      714 字
+      1.1k 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      11
        分钟
     </span>
   
@@ -231,6 +231,8 @@
             
             <div class="markdown-body">
               <h1 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a><strong>闲话</strong></h1><p>NEMU是南大的一个课设，你天拿来当小学期任务，<del>端地一番折磨</del>  </p>
+<p>本篇博客由PA1实验报告改编而来，后续可能会有必做题的过程<del>也可能没有</del>  </p>
+<p> <del>看阿瓜的懒惰程度了</del></p>
 <h1 id="实验进度表"><a href="#实验进度表" class="headerlink" title="实验进度表"></a><strong>实验进度表</strong></h1><table>
 <thead>
 <tr>
@@ -313,15 +315,35 @@
 <li>A: 检索目录在12.2.2.11节内找到mov指令相关内容，查阅可知格式为DEST←SRC  </li>
 </ul>
 </li>
-</ol>
-<ul>
-<li><p>shell命令：  </p>
-<p>  find . -name “*[.h|.cpp]” | xargs wc -l<br>  使用上述命令，得代码共129281行    </p>
+<li><ul>
+<li>shell命令:<br>  find . -name “*[.h|.cpp]” | xargs wc -l<br>  使用上述命令，得代码共129281行    </li>
+</ul>
 </li>
+<li><ul>
 <li><p>Make文件：  </p>
 <p>  -Wall 使GCC产生尽可能多的警告信息，取消编译操作，打印出编译时所有错误或警告信息。  </p>
 <p>  -Werror 要求GCC将所有的警告当成错误进行处理，从而终止编译操作。  </p>
 <p>  使用-Wall和-Werror就是为了找出所有存在的或者潜在的错误，优化程序。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="实验遇到的问题、思考、解决办法"><a href="#实验遇到的问题、思考、解决办法" class="headerlink" title="实验遇到的问题、思考、解决办法"></a>实验遇到的问题、思考、解决办法</h1><ul>
+<li><p>在刚开始实验的时候，遇到“Makefile : “run”……”这种错误会不知所措，询问老师之后明白要慢慢debug，通过Log、Assert等函数以及GDB等工具，最终解决了bug。  </p>
+</li>
+<li><p>某次在虚仿平台关机导致git文件损坏，csdn、stackoverflow搜索到的办法都未能解决问题，最终在魏老师的帮助下通过删除然后重新绑定远程仓库解决了问题。  </p>
+</li>
+<li><p>打印寄存器时起初不知道如何依次打印，后来发现reg.h文件下有定义好的regsl数组和reg_l函数可以利用。  </p>
+</li>
+</ul>
+<h1 id="实验心得"><a href="#实验心得" class="headerlink" title="实验心得"></a>实验心得</h1><ul>
+<li><p> 要细读实验指导书，里面内容很详细，开始时候因为只看PPT导致忽略掉了很多细节内容。</p>
+</li>
+<li><p>调试程序时要善于使用gdb等工具，小型的bug可以使用Log、Assert等函数两面夹击来判断bug出现在哪里，总之对bug不要失措.</p>
+</li>
+<li><p>对于某任务中所用到的文件中的代码要通读一下，不求全看懂，多少知道相关函数、数组是做什么的，比如reg.h文件下的regsl数组和reg_l函数，</p>
+</li>
+<li><p>在.c文件中声明函数后要在.h文件中定义</p>
 </li>
 </ul>
 
