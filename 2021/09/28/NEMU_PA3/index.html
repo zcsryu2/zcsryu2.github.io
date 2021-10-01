@@ -20,7 +20,7 @@
   <meta name="author" content="zcsryu2">
   <meta name="keywords" content="">
   
-  <title>NEMU PA1 菜鸡记录 - 王珣 の Blog</title>
+  <title>NEMU PA3 菜鸡记录 - 王珣 の Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -165,7 +165,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="NEMU PA1 菜鸡记录">
+            <span class="h2" id="subtitle" title="NEMU PA3 菜鸡记录">
               
             </span>
 
@@ -175,8 +175,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-09-21 19:40" pubdate>
-        2021年9月21日 晚上
+      <time datetime="2021-09-28 16:51" pubdate>
+        2021年9月28日 下午
       </time>
     </span>
   
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.5k 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      15
        分钟
     </span>
   
@@ -227,13 +227,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">NEMU PA1 菜鸡记录</h1>
+            <h1 style="display: none">NEMU PA3 菜鸡记录</h1>
             
             <div class="markdown-body">
-              <h1 id="闲话"><a href="#闲话" class="headerlink" title="闲话"></a><strong>闲话</strong></h1><p>NEMU是南大的一个课设，你天拿来当小学期任务，<del>端地一番折磨</del>  </p>
-<p>本篇博客由PA1实验报告改编而来，后续可能会有必做题的过程<del>也可能没有</del>  </p>
-<p> <del>看阿瓜的懒惰程度了</del></p>
-<h1 id="实验进度表"><a href="#实验进度表" class="headerlink" title="实验进度表"></a><strong>实验进度表</strong></h1><table>
+              <h1 id="实验进度表"><a href="#实验进度表" class="headerlink" title="实验进度表"></a><strong>实验进度表</strong></h1><table>
 <thead>
 <tr>
 <th>任务序号</th>
@@ -243,108 +240,123 @@
 </thead>
 <tbody><tr>
 <td>必做任务1</td>
-<td>实现正确的寄存器结构体</td>
+<td>实现一级Cache</td>
 <td>已完成</td>
 </tr>
 <tr>
 <td>必做任务2</td>
-<td>实现单步执行、打印寄存器、扫描内存</td>
+<td>在NEMU中实现分段机制</td>
 <td>已完成</td>
 </tr>
 <tr>
 <td>必做任务3</td>
-<td>实现算术表达式的词法分析</td>
+<td>在NEMU中实现分页机制</td>
 <td>已完成</td>
 </tr>
 <tr>
 <td>必做任务4</td>
-<td>实现算术表达式的递归求值</td>
+<td>实现TLB</td>
 <td>已完成</td>
 </tr>
 <tr>
 <td>选做任务1</td>
-<td>实现带有负数的算术表达式的求值</td>
-<td>已完成</td>
-</tr>
-<tr>
-<td>必做任务5</td>
-<td>实现更复杂的表达式求值</td>
+<td>实现二级Cache</td>
 <td>已完成</td>
 </tr>
 <tr>
 <td>选做任务2</td>
-<td>实现指针解引用</td>
-<td>已完成</td>
+<td>建议调试器</td>
+<td>未完成</td>
 </tr>
 <tr>
-<td>必做任务6</td>
-<td>实现监视点池的管理</td>
-<td>已完成</td>
-</tr>
-<tr>
-<td>必做任务7</td>
-<td>实现监视点</td>
-<td>已完成</td>
+<td>选做任务3</td>
+<td>为用户进程创建video memory 映射</td>
+<td>未完成</td>
 </tr>
 </tbody></table>
-<h1 id="必做题"><a href="#必做题" class="headerlink" title="必做题"></a><strong>必做题</strong></h1><h1 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a><strong>思考题</strong></h1><h2 id="思考题1-：opcode-table数组的类型"><a href="#思考题1-：opcode-table数组的类型" class="headerlink" title="思考题1 ：opcode_table数组的类型"></a>思考题1 ：opcode_table数组的类型</h2><ul>
-<li>opcode_table为helper_fun类型的数组，而helper_fun类型为指向参数类型为swaddr_t且返回值类型为int的函数指针，故opcode_table为函数指针数组。  </li>
+<h1 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a><strong>思考题</strong></h1><h2 id="思考题1：GDT能有多大"><a href="#思考题1：GDT能有多大" class="headerlink" title="思考题1：GDT能有多大"></a>思考题1：GDT能有多大</h2><ul>
+<li>段选择符的结构中，INDEX有13位，故GDT最大能容纳2^13个段描述符  </li>
 </ul>
-<h2 id="思考题2"><a href="#思考题2" class="headerlink" title="思考题2"></a>思考题2</h2><h3 id="（1）要执行多久"><a href="#（1）要执行多久" class="headerlink" title="（1）要执行多久"></a>（1）要执行多久</h3><ul>
-<li>cpu_exec函数的参数是uint32_t，即无符号整型，而传入的-1因会导致溢出而成为最大的无符号整型数，保证能够执行完输入的所有指令。  </li>
+<h2 id="思考题2：为什么是线性地址"><a href="#思考题2：为什么是线性地址" class="headerlink" title="思考题2：为什么是线性地址"></a>思考题2：为什么是线性地址</h2><ul>
+<li>不可以。虚拟地址需要经GDT中的段表翻译才能得出地址，而如果GDTR中存放虚拟地址则找不到GDT在哪里了。  </li>
 </ul>
-<h3 id="（2）为什么要使用static"><a href="#（2）为什么要使用static" class="headerlink" title="（2）为什么要使用static"></a>（2）为什么要使用static</h3><ul>
-<li><p>Q：框架代码中定义 wp_pool 等变量的时候使用了关键字 static，static 在此处的含义是什么? 为什么要在此处使用它?  </p>
-</li>
-<li><p>A： static表示wp_pool为静态全局变量，此处使用static是为了避免wp_pool在程序运行中被误修改。  </p>
-</li>
+<h2 id="思考题3：如何提高寻找段描述符的效率"><a href="#思考题3：如何提高寻找段描述符的效率" class="headerlink" title="思考题3：如何提高寻找段描述符的效率"></a>思考题3：如何提高寻找段描述符的效率</h2><ul>
+<li>可以按照高速缓存的思想，建立类似cache 和 TLB 的结构来提高寻找效率。  </li>
 </ul>
-<h2 id="思考题3：读手册的方法"><a href="#思考题3：读手册的方法" class="headerlink" title="思考题3：读手册的方法"></a>思考题3：读手册的方法</h2><ol>
+<h2 id="思考题4：段式存储管理的缺点"><a href="#思考题4：段式存储管理的缺点" class="headerlink" title="思考题4：段式存储管理的缺点"></a>思考题4：段式存储管理的缺点</h2><ul>
+<li>分段管理要求分配一大段连续的存储空间，难以实现并且容易造成大量的外部碎片出现。  </li>
+</ul>
+<h2 id="思考题5：页式存储管理的优点"><a href="#思考题5：页式存储管理的优点" class="headerlink" title="思考题5：页式存储管理的优点"></a>思考题5：页式存储管理的优点</h2><ul>
+<li>没有外部碎片，并且不再需要大段连续的存储空间，提高了内存的利用率。  </li>
+</ul>
+<h2 id="思考题6：一些问题"><a href="#思考题6：一些问题" class="headerlink" title="思考题6：一些问题"></a>思考题6：一些问题</h2><ol>
 <li><ul>
-<li>Q： EFLAGS 寄存器中的 CF 位是什么意思  </li>
-<li>A: 在目录中检索register和flag发现2.3.4.1节和附录c有提及相关内容，查阅得：CF为进位标志，如果运算导致最高位产生进位或者借位则为1.否则为0。  </li>
-</ul>
-</li>
-<li><ul>
-<li>Q: ModR/M 字节是什么</li>
-<li>A: 检索目录得ModR/M相关内容在17.2.1节，查阅可知ModR/M字节包括mod、reg、r/m三方面内容,分别表示索引类型或者寄存器编号、寻址模式编码等信息。  </li>
+<li>Q：为什么页表表项中的基地址信息只有20位而不是32位</li>
+<li>A：分页基地址有20位是8086的传统<br>  在8086的分段机制中，每个段的基地址由seg_reg（即段寄存器的值）&lt;&lt;4得到，而段寄存器是16位的，左移4位得到20位的基地址。  </li>
 </ul>
 </li>
 <li><ul>
-<li>Q: mov 指令的具体格式是怎么样的</li>
-<li>A: 检索目录在12.2.2.11节内找到mov指令相关内容，查阅可知格式为DEST←SRC  </li>
+<li>Q：表项和CR3中的基地址都是物理地址，这是必须的吗？能否采用虚拟地址或者线性地址？  </li>
+<li>A：是必须的，如果cr3中的基地址是虚拟地址，则无从寻找页表翻译成物理地址，进入鸡生蛋蛋生鸡的死循环。至于其他表项的虚拟地址与线性地址问题同理。</li>
 </ul>
 </li>
 <li><ul>
-<li>shell命令:<br>  find . -name “*[.h|.cpp]” | xargs wc -l<br>  使用上述命令，得代码共129281行    </li>
+<li>Q：为什么不采用一级页表？采用一级页表会有什么缺点？  </li>
+<li>A：多级页表可以有效地节约内存空间，如果仅采用一级页表，将可能导致较大的页表长期驻留在内存中。  </li>
+</ul>
+</li>
+</ol>
+<h2 id="思考题7：空指针是“空”的吗"><a href="#思考题7：空指针是“空”的吗" class="headerlink" title="思考题7：空指针是“空”的吗"></a>思考题7：空指针是“空”的吗</h2><ul>
+<li>空指针只是未分配或者未指向内存任何位置的指针，并不是“NULL”的。</li>
+</ul>
+<h2 id="思考题8：在扁平模式下如何进行保护"><a href="#思考题8：在扁平模式下如何进行保护" class="headerlink" title="思考题8：在扁平模式下如何进行保护"></a>思考题8：在扁平模式下如何进行保护</h2><ul>
+<li>对于数据有不同的访问权限，未达到需要的权限时不能进行写操作。  </li>
+</ul>
+<h2 id="思考题9：地址映射"><a href="#思考题9：地址映射" class="headerlink" title="思考题9：地址映射"></a>思考题9：地址映射</h2><p><img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/%E6%80%9D%E8%80%83%E9%A2%989.png" srcset="/img/loading.gif" lazyload alt="思考题9" title="思考题9">  </p>
+<h2 id="思考题10："><a href="#思考题10：" class="headerlink" title="思考题10："></a>思考题10：</h2><ul>
+<li>pframe_addr是无符号类型，它的值永远大于等于0，所以for循环无法退出，出现错误。 </li>
+</ul>
+<h2 id="思考题11：分页机制"><a href="#思考题11：分页机制" class="headerlink" title="思考题11：分页机制"></a>思考题11：分页机制</h2><ol>
+<li><ul>
+<li>因为这里定义的ｘ生成的地址是虚拟地址，超过了物理地址的界限，报错0xc014a000 outside of the physical memory。<br>而ｋvm.c 中的虚拟地址都经过了 va_to_pa 的转换，在物理地址范围之内。  </li>
 </ul>
 </li>
 <li><ul>
-<li><p>Make文件：  </p>
-<p>  -Wall 使GCC产生尽可能多的警告信息，取消编译操作，打印出编译时所有错误或警告信息。  </p>
-<p>  -Werror 要求GCC将所有的警告当成错误进行处理，从而终止编译操作。  </p>
-<p>  使用-Wall和-Werror就是为了找出所有存在的或者潜在的错误，优化程序。</p>
+<li>进行反汇编后，其地址如下：<br>c01003d6:    e8 65 09 00 00           call   c0100d40<init_page>   
+该call指令的opcode为e8，实现的是跳转到：该条指令的下一条指令的首地址+偏移量的位置。由于未进行寻址，故不需要进行虚实地址转化。</li>
+</ul>
 </li>
+<li><ul>
+<li>分页的环境下，在没有初始化页表时，0～128M的虚拟地址到物理地址的映射相当于一个简易的页表，使得高位的地址可以通过该虚拟地址（即经过va_to_pa）访问到物理地址，从而进行初始化页表的操作。  </li>
+</ul>
+</li>
+<li><ul>
+<li>init_mm()函数执行退出时。该函数将nemu映射到了高位地址并且将之前的PDE全部置为无效，此时返回main.c时，栈中保存的返回地址需要经过虚实转换，可由于页面被置为了无效，所以报错。  </li>
+</ul>
+</li>
+<li><ul>
+<li>查看汇编代码，直接调用此函数时，nemu运行在物理地址上，由于在init_mm中将之前的PDE都置为无效，所以在loader()函数寻址时页面无效，导致报错。 </li>
 </ul>
 </li>
 </ol>
 <h1 id="实验遇到的问题、思考、解决办法"><a href="#实验遇到的问题、思考、解决办法" class="headerlink" title="实验遇到的问题、思考、解决办法"></a>实验遇到的问题、思考、解决办法</h1><ul>
-<li><p>在刚开始实验的时候，遇到“Makefile : “run”……”这种错误会不知所措，Prof Wei指点我要慢慢debug，通过Log、Assert等函数以及GDB等工具，最终解决了bug。<del>（GDB过于生疏，PA1完全靠肉眼debug）</del>  </p>
+<li><p>对GDT一直看不很明白，以为数组的元素大小也需要跟处理器位数一样，最大是32位，实际上GDT的元素就是64位的段描述符，不过是分成了两个32位的结构体</p>
 </li>
-<li><p>某次在虚仿平台关机导致git文件损坏，csdn、stackoverflow搜索到的办法都未能解决问题，最终在Wei老师的帮助下通过删除然后重新绑定远程仓库解决了问题。  </p>
+<li><p>由于初始时对分段很不理解，然后对指导书内容进行了相应的整理，如下：</p>
+<ul>
+<li><p>由于内存的增长，单纯段寄存器无法满足寻址需要，需要采用分段机制。  </p>
 </li>
-<li><p>打印寄存器时起初不知道如何依次打印，后来发现reg.h文件下有定义好的regsl数组和reg_l函数可以利用。  </p>
+<li><p>80386作为32位处理器，故提供的指针都是32位的，而段寄存器只有16位，而段描述符有64位，用指针存储也无法做到。故采用GDT（Global Descriptor Table, 全局描述符表）来存储段描述符。  </p>
+</li>
+<li><p>GDT是一个数组，数组元素是64位的段描述符（实际上是一个有两个32位member的结构体）而数组下标则由段寄存器的前13位得到（最后两位用来描述优先级，中间1位TI用来判断是GDT还是LDT）（GDT是全局描述符表，而LDT是每个进程的描述符表，由于分页机制的出现，LDT并不需要在NEMU中实现）  </p>
+</li>
+<li><p>CPU还需要记录GDT的基地址，这通过设置一个GDTR的寄存器来实现，该寄存器有48位，前32位类似于指针存放GDT的首地址，后16位记录GDT的长度  </p>
+</li>
+</ul>
 </li>
 </ul>
 <h1 id="实验心得"><a href="#实验心得" class="headerlink" title="实验心得"></a>实验心得</h1><ul>
-<li><p> 要细读实验指导书，里面内容很详细，开始时候因为只看PPT导致忽略掉了很多细节内容。</p>
-</li>
-<li><p>调试程序时要善于使用gdb等工具，小型的bug可以使用Log、Assert等函数两面夹击来判断bug出现在哪里，总之对bug不要失措.</p>
-</li>
-<li><p>对于某任务中所用到的文件中的代码要通读一下，不求全看懂，多少知道相关函数、数组是做什么的，比如reg.h文件下的regsl数组和reg_l函数，</p>
-</li>
-<li><p>在.c文件中声明函数后要在.h文件中定义</p>
-</li>
+<li>指针最大位数受CPU位数影响，所以才需要GDT进行段描述符的存储和读取</li>
 </ul>
 
             </div>
@@ -380,9 +392,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/28/NEMU_PA3/">
+                      <a href="/2021/09/30/NEMU_PA2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">NEMU PA3 菜鸡记录</span>
+                        <span class="hidden-mobile">NEMU PA2 菜鸡记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -390,8 +402,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/09/21/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2021/09/21/NEMU_PA1/">
+                        <span class="hidden-mobile">NEMU PA1 菜鸡记录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zcsryu2.github.io/2021/09/30/NEMU_PA2/</loc>
+    
+    <lastmod>2021-09-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zcsryu2.github.io/2021/09/28/NEMU_PA3/</loc>
+    
+    <lastmod>2021-09-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zcsryu2.github.io/2021/09/21/NEMU_PA1/</loc>
     
     <lastmod>2021-09-24</lastmod>
@@ -39,7 +53,7 @@
 
   <url>
     <loc>https://zcsryu2.github.io/</loc>
-    <lastmod>2021-09-25</lastmod>
+    <lastmod>2021-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -47,14 +61,14 @@
   
   <url>
     <loc>https://zcsryu2.github.io/tags/%E9%97%B2%E8%AF%9D/</loc>
-    <lastmod>2021-09-25</lastmod>
+    <lastmod>2021-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zcsryu2.github.io/tags/NEMU/</loc>
-    <lastmod>2021-09-25</lastmod>
+    <lastmod>2021-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -63,14 +77,14 @@
   
   <url>
     <loc>https://zcsryu2.github.io/categories/Diary/</loc>
-    <lastmod>2021-09-25</lastmod>
+    <lastmod>2021-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zcsryu2.github.io/categories/Notes/</loc>
-    <lastmod>2021-09-25</lastmod>
+    <lastmod>2021-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
