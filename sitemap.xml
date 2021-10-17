@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zcsryu2.github.io/2021/10/17/%E8%B5%84%E6%9C%AC%E7%9A%84%E9%99%90%E5%BA%A6%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zcsryu2.github.io/2021/10/06/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/</loc>
+    
+    <lastmod>2021-10-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zcsryu2.github.io/2021/09/30/NEMU_PA2/</loc>
     
     <lastmod>2021-10-01</lastmod>
@@ -53,7 +67,7 @@
 
   <url>
     <loc>https://zcsryu2.github.io/</loc>
-    <lastmod>2021-10-01</lastmod>
+    <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -61,14 +75,28 @@
   
   <url>
     <loc>https://zcsryu2.github.io/tags/%E9%97%B2%E8%AF%9D/</loc>
-    <lastmod>2021-10-01</lastmod>
+    <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zcsryu2.github.io/tags/NEMU/</loc>
-    <lastmod>2021-10-01</lastmod>
+    <lastmod>2021-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zcsryu2.github.io/tags/OS/</loc>
+    <lastmod>2021-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zcsryu2.github.io/tags/Marxism/</loc>
+    <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -77,14 +105,21 @@
   
   <url>
     <loc>https://zcsryu2.github.io/categories/Diary/</loc>
-    <lastmod>2021-10-01</lastmod>
+    <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://zcsryu2.github.io/categories/Notes/</loc>
-    <lastmod>2021-10-01</lastmod>
+    <lastmod>2021-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zcsryu2.github.io/categories/Reading/</loc>
+    <lastmod>2021-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
