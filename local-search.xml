@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>6.S081 lab1</title>
+    <link href="/2021/10/20/6.S081_lab1/"/>
+    <url>/2021/10/20/6.S081_lab1/</url>
+    
+    <content type="html"><![CDATA[<p>pipe结构如下  </p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> PIPESIZE 512</span><br><br><span class="hljs-keyword">struct</span> pipe &#123;<br>  <span class="hljs-keyword">struct</span> spinlock <span class="hljs-keyword">lock</span>;<br>  <span class="hljs-built_in">char</span> data[PIPESIZE];<br>  <span class="hljs-built_in">uint</span> nread;     <span class="hljs-comment">// number of bytes read</span><br>  <span class="hljs-built_in">uint</span> nwrite;    <span class="hljs-comment">// number of bytes written</span><br>  <span class="hljs-built_in">int</span> readopen;   <span class="hljs-comment">// read fd is still open</span><br>  <span class="hljs-built_in">int</span> writeopen;  <span class="hljs-comment">// write fd is still open</span><br>&#125;;   <br></code></pre></td></tr></table></figure><p>在pipe(fd)后，fd[2]数组已不再是一般的有两个元素的int型数组，调用write函数写入fd[1]中的数据都会传到管道并存入缓冲区</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>OS</tag>
+      
+      <tag>lab</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>资本的限度读书笔记</title>
     <link href="/2021/10/17/%E8%B5%84%E6%9C%AC%E7%9A%84%E9%99%90%E5%BA%A6%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     <url>/2021/10/17/%E8%B5%84%E6%9C%AC%E7%9A%84%E9%99%90%E5%BA%A6%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
