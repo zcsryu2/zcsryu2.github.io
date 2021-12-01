@@ -184,8 +184,47 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/11/10/%E8%BF%9B%E7%A8%8B%E4%B9%A0%E9%A2%98/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/11/10/%E8%BF%9B%E7%A8%8B%E4%B9%A0%E9%A2%98/" target="_self">
+          
+          
+            
+          
+          
+若某单处理器多进程系统中有多个就绪态进程，在进程处于临界区时能否进行处理机调度？  
+ 可以，当进程处于临界区时，说明进程正在占用处理机，只要不破坏临界资源的使用规则，是不会影响处理机调度的。比如，通常访问临界资源可能是慢速的外设（如打印机），如果在进程访问打印机时，不能处理机调度，那么系统的性能将是非常低的。  
+几种不适合进行处理机调度的情况：①在处理中断的过程中；②进程在操作系统内核程序临
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-10 16:58" pubdate>
+              2021-11-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/10/20/6.S081_lab1/" target="_self">
-          6.S081 lab1
+          6.S081 lab1 Xv6_utilities
         </a>
       </h1>
 
@@ -196,7 +235,13 @@
             
           
           pipe结构如下  
-12345678910#define PIPESIZE 512struct pipe &#123;  struct spinlock lock;  char data[PIPESIZE];  uint nread;     // number of bytes read  uint nwrite;    // number of bytes written  int read
+#define PIPESIZE 512
+
+struct pipe &#123;
+  struct spinlock lock;
+  char data[PIPESIZE];
+  uint nread;     &#x2F;&#x2F; number of bytes read
+  uint nwrite;    &#x2F;&#x2F; number of bytes wr
         </a>
       </p>
 
