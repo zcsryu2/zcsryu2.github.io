@@ -287,10 +287,10 @@ void main(int argc, char *argv[])&#123;
     &#125;
     exit(0);
 &#125;
-&#96;&#96;&#96;  
+&#96;&#96;&#96;    
 
  
-# **2.	Pingpong函数**
+# **2.	Pingpong函数**  
 ## （1）	实验目的
 在进程之间创建管道实现通信，使父进程向子进程发送ping，如果接收成功则子进程输出“&lt;pid&gt;: received ping”，子进程向父进程发送png，如果接收成功则父进程输出“&lt;pid&gt;: received pong”。’
 ## （2）	实验步骤
@@ -298,12 +298,11 @@ Pipe函数定义如下
  
 分别建立两个有两个元素的int型数组fd_pa[2]和fd_ch[2]作为父进程和子进程之间通信的管道，其中[0]用于读取，[1]用于写入。Pipe函数调用由于fork( )在子进程中返回值为0，而在父进程中返回值为子进程的pid（大于0），则可以由此区分情况，分别调用write( )和read( )进行写入和读取即可。输出时要求输出相应进程的pid，调用getpid( )即可。  
 此处子进程中应当先read到fd_pa之中的“ping”之后再向fa_ch进行write，不然出现奇怪的bug。  
-## （3）	实验代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+## （3）	实验代码  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>//pingpong fuction<br>#include “kernel/types.h”<br>#include “user/user.h”<br>// #include “kernel/pipe.c”</p>
 <p>void main(int argc, char* argv){<br>    int fd_pa[2], fd_ch[2];//written by parent and child<br>    char buf[5];<br>    if(pipe(fd_pa) == -1 || pipe(fd_ch) == -1){<br>        printf(“Fail to create pipe\n”);<br>    }<br>    if(fork() &gt; 0){<br>        write(fd_pa[1], “ping”, strlen(“ping”));<br>        read(fd_ch[0], buf, strlen(“pong”));<br>        printf(“%d: received %s\n”, getpid(), buf);<br>    }<br>    else if(fork() == 0){<br>        read(fd_pa[0], buf, strlen(“ping”));<br>        printf(“%d: received %s\n”, getpid(), buf);<br>        write(fd_ch[1], “pong”, strlen(“ping”));<br>    }<br>    else if(fork() == -1){<br>        printf(“Fail to create process\n”);<br>    }<br>    exit(0);<br>}</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">
- 
-# **3.	Primes函数**
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"> 
+# **3.	Primes函数**  
 ## （1）	实验目的
 通过pipe( ) 和fork( )来设置管道，以实现埃氏筛法来寻找不大于35的素数,输入为”primes”
 ## （2）	实验步骤
@@ -314,7 +313,7 @@ Pipe函数定义如下
 首先将大于等于2且小于等于35的整数输入管道中（在调用pipe函数之后，fd实际是形成了一个pipe的结构，写入fd[1]的数据实际会以char型写入data中），然后关闭写入端，防止不同进程之间同时写入。
 子进程中，调用read( )读取base之后（read函数读取过的数据会被自动从data中删除掉），对管道中剩下的数分别进行检验，筛掉合数，对剩下的不能整除base的数作为新的数组调用prime函数，递归直到只剩1个数，最终即得所有的质数。
 本实验中，对于各进程需要注意wait(0)的位置，不然可能会导致某一进程提前结束进而导致shell的$符随机出现并因此无法通过测试。
-## （3）	实验代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+## （3）	实验代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>//primes fuction<br>#include “kernel/types.h”<br>#include “user/user.h”</p>
 <p>int num = 35;</p>
 <p>//埃氏筛法寻找质数<br>void primes(int *array, int num){<br>    if(num == 1){<br>        printf(“prime %d\n”, *array);<br>        return ;<br>    }<br>    int fd[2];<br>    if(pipe(fd) == -1){<br>        printf(“Fail to create pipe\n”);<br>        return ;<br>    }<br>    int base, temp;<br>    base = *array;<br>    printf(“prime %d\n”, base);</p>
