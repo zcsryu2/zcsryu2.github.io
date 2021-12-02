@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      31
+      30
        分钟
     </span>
   
@@ -264,7 +264,7 @@
   uint nwrite<span class="token punctuation">;</span>    <span class="token comment">// number of bytes written</span>
   <span class="token keyword">int</span> readopen<span class="token punctuation">;</span>   <span class="token comment">// read fd is still open</span>
   <span class="token keyword">int</span> writeopen<span class="token punctuation">;</span>  <span class="token comment">// write fd is still open</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>在pipe(fd)后，fd[2]数组已不再是一般的有两个元素的int型数组，调用write函数写入fd[1]中的数据都会传到管道并存入缓冲区</p>
 <h1 id="1-Sleep函数"><a href="#1-Sleep函数" class="headerlink" title="1.    Sleep函数"></a><strong>1.    Sleep函数</strong></h1><h2 id="（1）-实验目的"><a href="#（1）-实验目的" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>实现一条指令，使xv6可以暂停相应参数的ticks（tick为xv6的一个时间单位），输入格式为sleep 10。  </p>
 <h2 id="（2）-实验步骤"><a href="#（2）-实验步骤" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p>要求在user/sleep.c中实现，故新建sleep.c文件。在user.h文件中有可以调用的函数，根据要求，此处只需要根据输入格式“sleep 第一个参数”调用atoi函数和sleep函数，第一个参数为sleep的ticks。由于是按char*格式传入的参数，需要调用atoi函数来转换成int型参量。</p>
@@ -286,21 +286,11 @@
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error! You input too much argument or no argument.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>  
-```  
-# <span class="token operator">*</span><span class="token operator">*</span><span class="token number">2.</span>	Pingpong函数<span class="token operator">*</span><span class="token operator">*</span>  
-## （<span class="token number">1</span>）	实验目的
-在进程之间创建管道实现通信，使父进程向子进程发送ping，如果接收成功则子进程输出“<span class="token operator">&lt;</span>pid<span class="token operator">></span><span class="token operator">:</span> received ping”，子进程向父进程发送png，如果接收成功则父进程输出“<span class="token operator">&lt;</span>pid<span class="token operator">></span><span class="token operator">:</span> received pong”。
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-## （<span class="token number">2</span>）	实验步骤
-Pipe函数定义如下
- 
-分别建立两个有两个元素的<span class="token keyword">int</span>型数组fd_pa<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>和fd_ch<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>作为父进程和子进程之间通信的管道，其中<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>用于读取，<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>用于写入。Pipe函数调用由于<span class="token function">fork</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>在子进程中返回值为<span class="token number">0</span>，而在父进程中返回值为子进程的pid（大于<span class="token number">0</span>），则可以由此区分情况，分别调用<span class="token function">write</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>和<span class="token function">read</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>进行写入和读取即可。输出时要求输出相应进程的pid，调用<span class="token function">getpid</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>即可。  
-此处子进程中应当先read到fd_pa之中的“ping”之后再向fa_ch进行write，不然出现奇怪的bug。 
-
-## （<span class="token number">3</span>）	实验代码  
-```c 
-<span class="token comment">//pingpong fuction</span>
+<h1 id="2-Pingpong函数"><a href="#2-Pingpong函数" class="headerlink" title="2.    Pingpong函数"></a><strong>2.    Pingpong函数</strong></h1><h2 id="（1）-实验目的-1"><a href="#（1）-实验目的-1" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>在进程之间创建管道实现通信，使父进程向子进程发送ping，如果接收成功则子进程输出“<pid>: received ping”，子进程向父进程发送png，如果接收成功则父进程输出“<pid>: received pong”。</p>
+<h2 id="（2）-实验步骤-1"><a href="#（2）-实验步骤-1" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p>Pipe函数定义如下<br><code>int pipe(int fd[2]);</code><br>分别建立两个有两个元素的int型数组fd_pa[2]和fd_ch[2]作为父进程和子进程之间通信的管道，其中[0]用于读取，[1]用于写入。Pipe函数调用由于fork( )在子进程中返回值为0，而在父进程中返回值为子进程的pid（大于0），则可以由此区分情况，分别调用write( )和read( )进行写入和读取即可。输出时要求输出相应进程的pid，调用getpid( )即可。<br>此处子进程中应当先read到fd_pa之中的“ping”之后再向fa_ch进行write，不然出现奇怪的bug。 </p>
+<h2 id="（3）-实验代码-1"><a href="#（3）-实验代码-1" class="headerlink" title="（3）    实验代码"></a>（3）    实验代码</h2><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//pingpong fuction</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/types.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"user/user.h"</span></span>
 <span class="token comment">// #include "kernel/pipe.c"</span>
@@ -325,24 +315,11 @@ Pipe函数定义如下
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Fail to create process\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>  
-```  
- 
-# <span class="token operator">*</span><span class="token operator">*</span><span class="token number">3.</span>	Primes函数<span class="token operator">*</span><span class="token operator">*</span>  
-## （<span class="token number">1</span>）	实验目的
-通过<span class="token function">pipe</span><span class="token punctuation">(</span> <span class="token punctuation">)</span> 和<span class="token function">fork</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>来设置管道，以实现埃氏筛法来寻找不大于<span class="token number">35</span>的素数<span class="token punctuation">,</span>输入为”primes”
-## （<span class="token number">2</span>）	实验步骤
-<span class="token operator">!</span><span class="token punctuation">[</span>筛法<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token operator">:</span><span class="token comment">//raw.githubusercontent.com/zcsryu2/Blog_images/main/pipe.jpg "埃氏筛法")  </span>
-思路即如图所示，每一次选取管道中第一个数作为base，剩下的数如果可以整除base则被筛掉，余下的数进行下一次筛，直到只剩下一个数。每次的base即为筛得的质数。  
-
-<span class="token operator">!</span><span class="token punctuation">[</span>pipe<span class="token punctuation">]</span><span class="token punctuation">(</span>https<span class="token operator">:</span><span class="token comment">//raw.githubusercontent.com/zcsryu2/Blog_images/main/pipe_struct.jpg "pipe结构体")  </span>
-首先将大于等于<span class="token number">2</span>且小于等于<span class="token number">35</span>的整数输入管道中（在调用pipe函数之后，fd实际是形成了一个pipe的结构，写入fd<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>的数据实际会以<span class="token keyword">char</span>型写入data中），然后关闭写入端，防止不同进程之间同时写入。
-子进程中，调用<span class="token function">read</span><span class="token punctuation">(</span> <span class="token punctuation">)</span>读取base之后（read函数读取过的数据会被自动从data中删除掉），对管道中剩下的数分别进行检验，筛掉合数，对剩下的不能整除base的数作为新的数组调用prime函数，递归直到只剩<span class="token number">1</span>个数，最终即得所有的质数。
-本实验中，对于各进程需要注意<span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>的位置，不然可能会导致某一进程提前结束进而导致shell的$符随机出现并因此无法通过测试。 
-
-## （<span class="token number">3</span>）	实验代码
-```c
-<span class="token comment">//primes fuction</span>
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<h1 id="3-Primes函数"><a href="#3-Primes函数" class="headerlink" title="3.    Primes函数"></a><strong>3.    Primes函数</strong></h1><h2 id="（1）-实验目的-2"><a href="#（1）-实验目的-2" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>通过pipe( ) 和fork( )来设置管道，以实现埃氏筛法来寻找不大于35的素数,输入为”primes”</p>
+<h2 id="（2）-实验步骤-2"><a href="#（2）-实验步骤-2" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p><img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/pipe.jpg" srcset="/img/loading.gif" lazyload alt="筛法" title="埃氏筛法"><br>思路即如图所示，每一次选取管道中第一个数作为base，剩下的数如果可以整除base则被筛掉，余下的数进行下一次筛，直到只剩下一个数。每次的base即为筛得的质数。  </p>
+<p><img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/pipe_struct.jpg" srcset="/img/loading.gif" lazyload alt="pipe" title="pipe结构体"><br>首先将大于等于2且小于等于35的整数输入管道中（在调用pipe函数之后，fd实际是形成了一个pipe的结构，写入fd[1]的数据实际会以char型写入data中），然后关闭写入端，防止不同进程之间同时写入。<br>子进程中，调用read( )读取base之后（read函数读取过的数据会被自动从data中删除掉），对管道中剩下的数分别进行检验，筛掉合数，对剩下的不能整除base的数作为新的数组调用prime函数，递归直到只剩1个数，最终即得所有的质数。<br>本实验中，对于各进程需要注意wait(0)的位置，不然可能会导致某一进程提前结束进而导致shell的$符随机出现并因此无法通过测试。 </p>
+<h2 id="（3）-实验代码-2"><a href="#（3）-实验代码-2" class="headerlink" title="（3）    实验代码"></a>（3）    实验代码</h2><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//primes fuction</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/types.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"user/user.h"</span></span>
 
@@ -400,14 +377,14 @@ Pipe函数定义如下
     <span class="token function">primes</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> num <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<h1 id="4-Find函数"><a href="#4-Find函数" class="headerlink" title="4.    Find函数"></a><strong>4.    Find函数</strong></h1><h2 id="（1）-实验目的-1"><a href="#（1）-实验目的-1" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>在指定路径及其子文件夹内寻找指定名称的文件，格式为</p>
+<h1 id="4-Find函数"><a href="#4-Find函数" class="headerlink" title="4.    Find函数"></a><strong>4.    Find函数</strong></h1><h2 id="（1）-实验目的-3"><a href="#（1）-实验目的-3" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>在指定路径及其子文件夹内寻找指定名称的文件，格式为</p>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">find &lt;path&gt; &lt;filename&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<h2 id="（2）-实验步骤-1"><a href="#（2）-实验步骤-1" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p>题目中提示查看user/ls.c来了解怎样读取目录，发现ls.c实现的功能和题目要求的很相似，只缺少对文件名称进行比对后输出这一功能，故先将ls.c的代码copy至find.c中之后进行修改即可。</p>
+<h2 id="（2）-实验步骤-3"><a href="#（2）-实验步骤-3" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p>题目中提示查看user/ls.c来了解怎样读取目录，发现ls.c实现的功能和题目要求的很相似，只缺少对文件名称进行比对后输出这一功能，故先将ls.c的代码copy至find.c中之后进行修改即可。</p>
 <p>Ls.c的代码中，调用open( )获取相应的文件描述符并输入fd，调用fstat( )函数是st得到相应的文件属性，如果是文件，则输出，如果是文件夹，则在路径后加’/’和该文件夹下的文件名或者文件夹名，再调用该函数。</p>
 <p>具体修改如下：在st.type是文件而不是文件夹的时候，调用strcmp函数对该文件的文件名与寻找的filename进行对比，如果一样则输出（此处需要先调用fmtname( )将路径名转化为文件名）。题目要求不输出“.”和“..”，故当de.name是“.”和“..”时，跳过</p>
-<h2 id="（3）-实验代码-1"><a href="#（3）-实验代码-1" class="headerlink" title="（3）    实验代码"></a>（3）    实验代码</h2><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//find fuction</span>
+<h2 id="（3）-实验代码-3"><a href="#（3）-实验代码-3" class="headerlink" title="（3）    实验代码"></a>（3）    实验代码</h2><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">//find fuction</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/types.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"user/user.h"</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/stat.h"</span></span>
@@ -488,56 +465,55 @@ Pipe函数定义如下
     <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
-<h1 id="5-xargs函数"><a href="#5-xargs函数" class="headerlink" title="5.    xargs函数"></a><strong>5.    xargs函数</strong></h1><h2 id="（1）-实验目的-2"><a href="#（1）-实验目的-2" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>在xv6中实现xargs指令，使前一条指令的输出由标准输入转化为命令行参数来作为后面指令的参数（之一）。此处要求实现的xargs指令前只有一个参数。</p>
-<h2 id="（2）-实验步骤-2"><a href="#（2）-实验步骤-2" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p> <img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/xrags.jpg" srcset="/img/loading.gif" lazyload alt="xrags" title="xrags指令样例"><br>以上图为例，如果一个指令以这样的形式输入命令行，则‘|’前的输出”hello too”会被存在0（缓冲区）中。</p>
+<h1 id="5-xargs函数"><a href="#5-xargs函数" class="headerlink" title="5.    xargs函数"></a><strong>5.    xargs函数</strong></h1><h2 id="（1）-实验目的-4"><a href="#（1）-实验目的-4" class="headerlink" title="（1）    实验目的"></a>（1）    实验目的</h2><p>在xv6中实现xargs指令，使前一条指令的输出由标准输入转化为命令行参数来作为后面指令的参数（之一）。此处要求实现的xargs指令前只有一个参数。</p>
+<h2 id="（2）-实验步骤-4"><a href="#（2）-实验步骤-4" class="headerlink" title="（2）    实验步骤"></a>（2）    实验步骤</h2><p> <img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/xrags.jpg" srcset="/img/loading.gif" lazyload alt="xrags" title="xrags指令样例"><br>以上图为例，如果一个指令以这样的形式输入命令行，则‘|’前的输出”hello too”会被存在0（缓冲区）中。</p>
 <p>实现xargs时，只需要在其后指令（echo）的参数后缀上前面的输出，即从0中read出来并作为最后一个参数即可。然后调用fork ( )创建子进程并调用exec( )来执行“xargs”其后的指令即可。</p>
-<h2 id="（3）-实验代码-2"><a href="#（3）-实验代码-2" class="headerlink" title="（3）    实验代码"></a>（3）    实验代码</h2><div class="code-wrapper"><pre><code class="c">#include &quot;kernel/types.h&quot;
-#include &quot;kernel/stat.h&quot;
-#include &quot;user/user.h&quot;
-#include &quot;kernel/fs.h&quot;
-#include &quot;kernel/param.h&quot;
+<h2 id="（3）-实验代码-4"><a href="#（3）-实验代码-4" class="headerlink" title="（3）    实验代码"></a>（3）    实验代码</h2><div class="code-wrapper"><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/types.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/stat.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"user/user.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/fs.h"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"kernel/param.h"</span></span>
 
-void main(int argc, char *argv[]) &#123;
-    if(argc &lt; 2) &#123;
-        printf(&quot;Error! You input too few arguments.\n&quot;);
-        exit(0);
-    &#125;
-    if(argc + 1 &gt; MAXARG) &#123;
-        printf(&quot;Error! You input too many arguments.\n&quot;);
-        exit(0);
-    &#125;
-    char *command = argv[1];
-    char *argument[MAXARG], buf[512];
-    int i;
+<span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>argc <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error! You input too few arguments.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>argc <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">></span> MAXARG<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Error! You input too many arguments.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>command <span class="token operator">=</span> argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>argument<span class="token punctuation">[</span>MAXARG<span class="token punctuation">]</span><span class="token punctuation">,</span> buf<span class="token punctuation">[</span><span class="token number">512</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
 
-    for (i = 1; i &lt; argc; i++) &#123;
-        argument[i - 1] = argv[i];
-    &#125;
-    argument[argc] = 0;
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> argc<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        argument<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> argv<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    argument<span class="token punctuation">[</span>argc<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-    while(1) &#123;
-        i = 0;
-        while(1) &#123;
-            int n = read(0, &amp;buf[i], 1);
-            if(n == 0 || buf[i] == &#39;\n&#39;) 
-                break;
-            i++;
-        &#125;
-        if(i == 0) 
-            break;
-        buf[i] = 0;
-        argument[argc - 1] = buf;
-        if(fork() == 0) &#123;
-            exec(command, argument);
-            exit(0);
-        &#125; 
-        else&#123;
-            wait(0);
-        &#125;
-    &#125;
-    exit(0);
-&#125;  
-</code></pre></div>
+    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>n <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'\n'</span><span class="token punctuation">)</span> 
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            i<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> 
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        buf<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        argument<span class="token punctuation">[</span>argc <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> buf<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">fork</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token function">exec</span><span class="token punctuation">(</span>command<span class="token punctuation">,</span> argument<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> 
+        <span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+            <span class="token function">wait</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 
             </div>
             <hr>
