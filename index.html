@@ -256,8 +256,9 @@
 struct pipe &#123;
   struct spinlock lock;
   char data[PIPESIZE];
-  uint nread;     &#x2F;&#x2F; number of bytes read
-  uint nwrite;    &#x2F;&#x2F; number of bytes wr
+  uint nread;     // number of bytes read
+  uint nwrite;    // number of bytes written
+  int readopen
         </a>
       </p>
 
