@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      473 字
+      593 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      8
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年1月14日 下午
+                  本文最后更新于：2022年1月17日 晚上
                 
               </p>
             
@@ -269,7 +269,18 @@ act<span class="token punctuation">(</span><span class="token number">3</span><s
     <span class="token keyword">return</span> <span class="token keyword">lambda</span> y<span class="token punctuation">:</span> x <span class="token operator">+</span> y
 act <span class="token operator">=</span> action<span class="token punctuation">(</span><span class="token number">99</span><span class="token punctuation">)</span>
 act<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p>而如果想要直接调用action来计算,则需要写成action(99)(3)的形式  </p>
+<p>而如果想要直接调用action来计算,则需要写成action(99)(3)的形式<br>再举一通过匿名函数实现递归阶乘例</p>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_anonymous_factorial</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Return the value of an expression that computes factorial.
+
+    >>> make_anonymous_factorial()(5)
+    120
+    >>> from construct_check import check
+    >>> check(HW_SOURCE_FILE, 'make_anonymous_factorial', ['Assign', 'AugAssign', 'FunctionDef', 'Recursion'])
+    True
+    """</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">lambda</span> f<span class="token punctuation">:</span> <span class="token keyword">lambda</span> x<span class="token punctuation">:</span> f<span class="token punctuation">(</span>f<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> f<span class="token punctuation">,</span> x<span class="token punctuation">:</span> x <span class="token keyword">if</span> x <span class="token operator">==</span> <span class="token number">1</span> <span class="token keyword">else</span> x <span class="token operator">*</span> f<span class="token punctuation">(</span>f<span class="token punctuation">,</span> x<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p>返回值中，(lambda f, x: x if x == 1 else x * f(f, x-1))是前一部分的嵌套匿名函数(lambda f: lambda x: f(f, x))中的参数f，所以调用make_anonymous_factor( )时后面只需要输入参数x</p>
 <h2 id="Higher-Order-Functions-高阶函数"><a href="#Higher-Order-Functions-高阶函数" class="headerlink" title="Higher Order Functions 高阶函数"></a><strong>Higher Order Functions 高阶函数</strong></h2><p>首先，需要知道在python中函数名同样是一个变量.比如add( ),其返回值是将各参数之和，而如果有</p>
 <div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> func <span class="token operator">=</span> add<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>则可以像调用add(x, y)一样调用func(x, y).<br>同样的,函数名也可以作为传入函数的参数和返回值</p>
