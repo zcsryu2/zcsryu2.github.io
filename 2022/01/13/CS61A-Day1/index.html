@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      657 字
+      658 字
     </span>
   
 
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月20日 晚上
+                  本文最后更新于：2022年2月24日 晚上
                 
               </p>
             
@@ -299,7 +299,7 @@ act<span class="token punctuation">(</span><span class="token number">3</span><s
 <div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> func <span class="token operator">=</span> trace1<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>那么会先执行trace1( ) 中return前的code, 并有func = wrapped, func(x) = wrapped(x)<br>对于triple(x), 其不仅是一个def, 并且有一个<em>注释</em>, 调用triple相当于</p>
 <div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">triple <span class="token operator">=</span> trace1<span class="token punctuation">(</span>triple<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p>另外，如果是一个多层嵌套的高阶函数，如果内层的函数试图引用外层的函数定义和声明的变量n, 在不修改n的值的情况下可以直接调用<br>如果内层函数需要对n进行修改,则需要在内层函数里有以下声明</p>
+<p>另外，如果是一个多层嵌套的高阶函数，如果内层的函数试图引用外层的函数定义和声明的变量n, 在不修改n的值的情况下可以直接调用  <br/><br/><br>如果内层函数需要对n进行修改,则需要在内层函数里有以下声明</p>
 <div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">nonlocal</span> n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>如下例:</p>
 <div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">make_adder_inc</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
