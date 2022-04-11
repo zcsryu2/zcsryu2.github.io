@@ -4,6 +4,56 @@
   
   
   <entry>
+    <title>计算机网络 Chapter3 传输层</title>
+    <link href="/2022/04/11/Transport_Layer/"/>
+    <url>/2022/04/11/Transport_Layer/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Transport-Services"><a href="#Transport-Services" class="headerlink" title="Transport Services"></a><strong>Transport Services</strong></h3><p>传输层使用网络层的服务, 向应用层提供逻辑上的端到端的数据传输.  </p><ul><li><p>TCP： Transmission Control Protocol<br>面向连接, 可靠 有序, 有拥塞控制, 流量控制和连接管理</p></li><li><p>UDP： User Datagram Protocol<br>不可靠, 乱序, 只是封装和解封装  </p></li></ul><p>上述两种标准都不能确保延迟(delay)和带宽(bandwidth).<br>由于分组交换中每个数据包都在独立寻址, 所以先发出的数据包可能会晚到, 会出现乱序和丢包.<br>应用层(Application Layer)中, 不同应用对于数据完整性, 延迟和吞吐量throughput以及安全性要求不一样, 这样就会采用不同的传输层标准.  </p><h3 id="UDP-User-Datagram-Protocol"><a href="#UDP-User-Datagram-Protocol" class="headerlink" title="UDP User Datagram Protocol"></a><strong>UDP User Datagram Protocol</strong></h3><ul><li>无连接, 导致可能有丢包和乱序, 同时也会减少一个RTT时间的消耗.  </li><li>简单,不需要在sender和receiver之间维护连接的状态.  </li><li>header的size小. 相对开销减少, 效率高.      </li><li>无拥塞控制(比较直接的方案是减小client端的发送速度, 调节吞吐率).<br>相对于有拥塞控制的TCP, UDP会尽量快地发送数据,没有限速.  </li></ul><p>UDP的header只有4个域:source port, dest port, length(UDP segment的长度)和checksum.  </p><h3 id="RDT-reliable-data-transfer"><a href="#RDT-reliable-data-transfer" class="headerlink" title="RDT reliable data transfer"></a><strong>RDT reliable data transfer</strong></h3><p>server端和client端只能通过接收到的对方发送的数据包才能知道对方的状态(state).  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计网</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>数字逻辑与数字系统 uint2 组合逻辑设计</title>
+    <link href="/2022/03/24/%E6%95%B0%E5%AD%90%E7%94%B5%E8%B7%AF_1/"/>
+    <url>/2022/03/24/%E6%95%B0%E5%AD%90%E7%94%B5%E8%B7%AF_1/</url>
+    
+    <content type="html"><![CDATA[<h2 id="推气泡"><a href="#推气泡" class="headerlink" title="推气泡"></a><strong>推气泡</strong></h2><p>可以通过与非门和或非门实现所有的逻辑电路. 这样可以减少硬件, 但会造成电路不易阅读. 可以通过推气泡的方法推导电路表达式.</p><ul><li>向后推: 气泡从输出端变到输入端,与门变或门,或门变与门</li><li>向前推: 气泡从输入端变到输出端,与门变或门,或门变与门<br>两个相邻气泡可以相互抵消.</li></ul><h3 id="推气泡的方法"><a href="#推气泡的方法" class="headerlink" title="推气泡的方法"></a>推气泡的方法</h3><p>从输出端向输入端推.<br>将气泡从电路最后的输出端开始推.<br>如果当前门有一个输入气泡, 可以变为前一个门的输出气泡.(即气泡可以在电路上门之间流动)  </p><h2 id="X-和-Z"><a href="#X-和-Z" class="headerlink" title="X 和 Z"></a><strong>X 和 Z</strong></h2><p>竞争(Contention)指电路结点同时被0和1驱动,这时结点的值并不确定, 定义为非法值X.<br>无关项X表示输出不需要考虑的输入,主要应用于优先级电路中.  </p><h2 id="组合逻辑的时序"><a href="#组合逻辑的时序" class="headerlink" title="组合逻辑的时序"></a><strong>组合逻辑的时序</strong></h2><p>电路中输出响应输入的改变需要一定时间. </p><h3 id="传播延迟和最小延迟"><a href="#传播延迟和最小延迟" class="headerlink" title="传播延迟和最小延迟"></a>传播延迟和最小延迟</h3><p>传播延迟: t pd<br>输入改变直到一个或多个输出改变为最终值所需的最长的时间延迟.  </p><p>最小延迟: t cd:<br>输入发生变化直到任何一个输出开始改变的最短时间.  </p><p>关键路径: 信号传输最慢的一条路径.  计算时取最长路径的tpd.<br>最短路径: 信号通过最快的路径.  计算式取最短路径的tcd.  </p><h3 id="毛刺"><a href="#毛刺" class="headerlink" title="毛刺"></a>毛刺</h3><p>当信号的变化在卡诺图中穿越2个主蕴含项的边缘时会出现毛刺.  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Notes</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数电</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>CS61A Day3 yield</title>
     <link href="/2022/02/23/CS61A-Day3/"/>
     <url>/2022/02/23/CS61A-Day3/</url>

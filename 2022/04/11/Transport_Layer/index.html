@@ -20,9 +20,35 @@
   <meta name="author" content="zcsryu2">
   <meta name="keywords" content="">
   
-  <title>归档 - 王珣 の Blog</title>
+  <title>计算机网络 Chapter3 传输层 - 王珣 の Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.css" />
+      
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -50,7 +76,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -149,9 +175,54 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="计算机网络 Chapter3 传输层">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-11 16:19" pubdate>
+        2022年4月11日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      342 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- LeanCloud 统计文章PV -->
+      <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="leancloud-page-views"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -164,64 +235,136 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 14 篇文章</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2022</p>
-    
-    <a href="/2022/04/11/Transport_Layer/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">计算机网络 Chapter3 传输层</span>
-      <time style="float: right;">04-11</time>
-    </a>
-  
-    
-    <a href="/2022/03/24/%E6%95%B0%E5%AD%90%E7%94%B5%E8%B7%AF_1/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">数字逻辑与数字系统 uint2 组合逻辑设计</span>
-      <time style="float: right;">03-24</time>
-    </a>
-  
-    
-    <a href="/2022/02/23/CS61A-Day3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CS61A Day3 yield</span>
-      <time style="float: right;">02-23</time>
-    </a>
-  
-    
-    <a href="/2022/01/18/CS61A-Day2/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CS61A Day2 dictionary</span>
-      <time style="float: right;">01-18</time>
-    </a>
-  
-    
-    <a href="/2022/01/13/CS61A-Day1/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">CS61A Day1 lambda 递归</span>
-      <time style="float: right;">01-13</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">计算机网络 Chapter3 传输层</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年4月11日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h3 id="Transport-Services"><a href="#Transport-Services" class="headerlink" title="Transport Services"></a><strong>Transport Services</strong></h3><p>传输层使用网络层的服务, 向应用层提供逻辑上的端到端的数据传输.  </p>
+<ul>
+<li><p>TCP： Transmission Control Protocol<br>面向连接, 可靠 有序, 有拥塞控制, 流量控制和连接管理</p>
+</li>
+<li><p>UDP： User Datagram Protocol<br>不可靠, 乱序, 只是封装和解封装  </p>
+</li>
+</ul>
+<p>上述两种标准都不能确保延迟(delay)和带宽(bandwidth).<br>由于分组交换中每个数据包都在独立寻址, 所以先发出的数据包可能会晚到, 会出现乱序和丢包.<br>应用层(Application Layer)中, 不同应用对于数据完整性, 延迟和吞吐量throughput以及安全性要求不一样, 这样就会采用不同的传输层标准.  </p>
+<h3 id="UDP-User-Datagram-Protocol"><a href="#UDP-User-Datagram-Protocol" class="headerlink" title="UDP User Datagram Protocol"></a><strong>UDP User Datagram Protocol</strong></h3><ul>
+<li>无连接, 导致可能有丢包和乱序, 同时也会减少一个RTT时间的消耗.  </li>
+<li>简单,不需要在sender和receiver之间维护连接的状态.  </li>
+<li>header的size小. 相对开销减少, 效率高.      </li>
+<li>无拥塞控制(比较直接的方案是减小client端的发送速度, 调节吞吐率).<br>相对于有拥塞控制的TCP, UDP会尽量快地发送数据,没有限速.  </li>
+</ul>
+<p>UDP的header只有4个域:source port, dest port, length(UDP segment的长度)和checksum.  </p>
+<h3 id="RDT-reliable-data-transfer"><a href="#RDT-reliable-data-transfer" class="headerlink" title="RDT reliable data transfer"></a><strong>RDT reliable data transfer</strong></h3><p>server端和client端只能通过接收到的对方发送的数据包才能知道对方的状态(state).  </p>
 
-
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Notes/">Notes</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/24/%E6%95%B0%E5%AD%90%E7%94%B5%E8%B7%AF_1/">
+                        <span class="hidden-mobile">数字逻辑与数字系统 uint2 组合逻辑设计</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"SWKhzYiGWYC6eNqbJkwgOvwe-gzGzoHsz","appKey":"vCBuSA6eBY7HvWkdEIJ9ROgN","placeholder":"说点什么","path":"window.location.pathname","avatar":"retro","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://swkhzyig.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":false,"requiredFields":[]},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -328,9 +471,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
