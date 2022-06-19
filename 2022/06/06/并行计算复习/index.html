@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2k 字
     </span>
   
 
@@ -255,7 +255,7 @@
             
             <div class="markdown-body">
               <h1 id="并行计算基本概念"><a href="#并行计算基本概念" class="headerlink" title="并行计算基本概念"></a><strong>并行计算基本概念</strong></h1><ul>
-<li>什么是并行计算<br>用多个处理机或处理器同时处理一个问题.  </li>
+<li>什么是并行计算<br>同时使⽤多种计算资源解决计算问题的过程, 是提⾼计算机系统计算速度和处理能⼒的⼀种有效⼿段.  </li>
 <li>为什么需要并行计算  <ol>
 <li>为了满足不断增长的计算力的需求，比如天气预报等任务精度提高和大数据时代数据量的提升要求算力提高.  </li>
 <li>计算机硬件和网络技术的发展，导致多核处理器的广泛应用，使得程序需要支持并行计算.      3. 单核处理器性能提升有限，不能满足增长的算力需求.      4. IO处理速度慢.  </li>
@@ -306,11 +306,13 @@
 </li>
 <li>对于并行计算:  <ul>
 <li>$t_{p} = \frac{t_{s}}{S(n)}$.  </li>
-<li>代价 = $t_{p} * n = \frac{t_{s}}{S(n)} = \frac{t_{s}}{E}$.  <h3 id="Amdahl-定律"><a href="#Amdahl-定律" class="headerlink" title="Amdahl 定律"></a>Amdahl 定律</h3></li>
+<li>代价 = $t_{p} * n = \frac{t_{s}}{S(n)} = \frac{t_{s}}{E}$.  </li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h3 id="Amdahl-定律"><a href="#Amdahl-定律" class="headerlink" title="Amdahl 定律"></a>Amdahl 定律</h3><ul>
 <li>出发点: <ul>
 <li>固定不变的计算负载.  </li>
 <li>固定的计算负载分布在多个处理器上的.  </li>
@@ -325,7 +327,7 @@
 </ul>
 </li>
 <li>公式:<br>  <img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/Gustafson%E5%AE%9A%E5%BE%8B.png" srcset="/img/loading.gif" lazyload alt="公式" title="Gustafson 定律公式">  </li>
-<li>结论:<br>给定一个应用，不断增加并行计算机和处理器数目，可以无限制的提升加速比. <h3 id="Sun-and-Ni-定律"><a href="#Sun-and-Ni-定律" class="headerlink" title="Sun and Ni 定律"></a>Sun and Ni 定律</h3>Sun-Ni定律是对前两个定律的总括和扩展.  </li>
+<li>结论:<br>给定一个应用，不断增加并行计算机和处理器数目，可以无限制的提升加速比.  <h3 id="Sun-and-Ni-定律"><a href="#Sun-and-Ni-定律" class="headerlink" title="Sun and Ni 定律"></a>Sun and Ni 定律</h3>Sun-Ni定律是对前两个定律的总括和扩展.  </li>
 <li>出发点:  <ul>
 <li>只要存储空间允许, 应当尽量增大问题规模以产生更好和更精确的解.  </li>
 <li>假定在单节点上使用了全部存储容量M并在相应于W的时间内求解之，此时工作负载W = fW + (1 - f)W.  </li>
@@ -344,9 +346,12 @@
 <li>增加规模有利于提高加速比的因素： <ul>
 <li>较大的问题规模可以提高较高的并发度  </li>
 <li>额外开销的增加可能慢于有效计算的增加  </li>
-<li>算法中的串行分量比例不是固定不变的(因问题规模增加而缩小)  <h1 id="MPI编程和Mapreduce编程"><a href="#MPI编程和Mapreduce编程" class="headerlink" title="MPI编程和Mapreduce编程"></a><strong>MPI编程和Mapreduce编程</strong></h1>考试都考完了, 这一部分和其他没总结好的部分就鸽了(逃).  <h1 id="并行算法的一般设计策略"><a href="#并行算法的一般设计策略" class="headerlink" title="并行算法的一般设计策略"></a>并行算法的一般设计策略</h1><h2 id="串行算法的直接并行化"><a href="#串行算法的直接并行化" class="headerlink" title="串行算法的直接并行化"></a>串行算法的直接并行化</h2></li>
+<li>算法中的串行分量比例不是固定不变的(因问题规模增加而缩小)  </li>
 </ul>
 </li>
+</ul>
+<h1 id="MPI编程和Mapreduce编程"><a href="#MPI编程和Mapreduce编程" class="headerlink" title="MPI编程和Mapreduce编程"></a><strong>MPI编程和Mapreduce编程</strong></h1><p>考试都考完了, 这一部分和其他没总结好的部分就鸽了(逃).  </p>
+<h1 id="并行算法的一般设计策略"><a href="#并行算法的一般设计策略" class="headerlink" title="并行算法的一般设计策略"></a>并行算法的一般设计策略</h1><h2 id="串行算法的直接并行化"><a href="#串行算法的直接并行化" class="headerlink" title="串行算法的直接并行化"></a>串行算法的直接并行化</h2><ul>
 <li>方法: 发掘和利用现有并行算法的并行性,直接将串行算法改造为并行算法.  </li>
 <li>特点: <ul>
 <li>由串行算法直接并行化的方法是并行算法设计的最常用方法之一.  </li>
@@ -362,15 +367,19 @@
 <li>方法: 从问题本身描述出发，不考虑相应的串行算法，设计一个全新的并<br>行算法.    </li>
 <li>特点: <ul>
 <li>挖扼问题的固有特性与并行的关东.  </li>
-<li>设计全新的并行算法是一个挑战性和创造性的工作.  <h3 id="求前缀和"><a href="#求前缀和" class="headerlink" title="求前缀和"></a>求前缀和</h3>年年必考填空.  <h2 id="借用已有算法求解新问题"><a href="#借用已有算法求解新问题" class="headerlink" title="借用已有算法求解新问题"></a>借用已有算法求解新问题</h2></li>
+<li>设计全新的并行算法是一个挑战性和创造性的工作.  </li>
 </ul>
 </li>
+</ul>
+<h3 id="求前缀和"><a href="#求前缀和" class="headerlink" title="求前缀和"></a>求前缀和</h3><p>年年必考填空.  </p>
+<h2 id="借用已有算法求解新问题"><a href="#借用已有算法求解新问题" class="headerlink" title="借用已有算法求解新问题"></a>借用已有算法求解新问题</h2><ul>
 <li>方法: 找出求解问题和禁个已解决问题之间的联系, 改造或利用已知算法应用列求解问题上.  </li>
 <li>特点: <ul>
-<li>这是一项创造性的工作(好水的一句词…).  <h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1>很遗憾直到考试结束也没有把并行计算的内容复习完, 好几道题都没有背会, 最后得了85分…<br>据老哥们说这课给分不高来着, 好像蛮多70+的, 不过就我在家的复习状态高不高的也就认了.  </li>
+<li>这是一项创造性的工作(好水的一句词…).  </li>
 </ul>
 </li>
 </ul>
+<h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1><p>很遗憾直到考试结束也没有把并行计算的内容复习完, 好几道题都没有背会, 最后得了85分…<br>据老哥们说这课给分不高来着, 好像蛮多70+的, 不过就我在家的复习状态高不高的也就认了.  </p>
 
             </div>
             <hr>
