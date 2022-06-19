@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.9k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      21
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年6月19日 晚上
+                  本文最后更新于：2022年6月20日 凌晨
                 
               </p>
             
@@ -300,7 +300,15 @@
 <li>$T_{s}$: 串行执行时间, $T_{p}$ : 并行执行时间.  </li>
 <li>S: 加速比, E:效率.  </li>
 <li>代价cost:<br>  代价 = 执行时间$t_{p}$ * 所使用的处理器整数n.  <ul>
-<li>对于串行计算:<h3 id="Amdahl-定律"><a href="#Amdahl-定律" class="headerlink" title="Amdahl 定律"></a>Amdahl 定律</h3></li>
+<li>对于串行计算:<ul>
+<li>代价 = 执行时间$t_{s}$.  </li>
+</ul>
+</li>
+<li>对于并行计算:  <ul>
+<li>$t_{p} = \frac{t_{s}}{S(n)}$.  </li>
+<li>代价 = $t_{p} * n = \frac{t_{s}}{S(n)} = \frac{t_{s}}{E}$.  <h3 id="Amdahl-定律"><a href="#Amdahl-定律" class="headerlink" title="Amdahl 定律"></a>Amdahl 定律</h3></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>出发点: <ul>
@@ -326,11 +334,42 @@
 </li>
 <li>存储受限的加速公式:<br>  <font size=5>$S^{“} = \frac{fW + (1 - f)G(p)W}{fW + \frac{(1 - f)G(p)W}{p}} = \frac{f + (1 - f)G(p)}{f + \frac{(1 - f)G(p)}{p}}$</font>  </li>
 <li>并行开销:<br><font size=5>$S^{‘} = \frac{fW + (1 - f)G(p)W}{fW + \frac{(1 - f)G(p)W}{p} + W_{O}} = \frac{f + (1 - f)G(p)}{f + \frac{(1 - f)G(p)}{p} + \frac{W_{O}}{W}}$</font> <h2 id="可扩放性评测"><a href="#可扩放性评测" class="headerlink" title="可扩放性评测"></a>可扩放性评测</h2></li>
+<li>可扩放性(Scalability)<br>计算机系统(或算法或程序等)性能随处理器数的增加而按比例提高的能力, 反映并行算法能否有效利用可扩充PE数的能力.  </li>
+<li>影响加速比的因素：处理器数与问题规模  <ul>
+<li>求解问题中的串行分量  </li>
+<li>并行处理所引起的额外开销（通信、等待、竞争、冗余操作和同步等） </li>
+<li>加大的处理器数超过了算法中的并发程度  </li>
 </ul>
-<h1 id="MPI编程和Mapreduce编程"><a href="#MPI编程和Mapreduce编程" class="headerlink" title="MPI编程和Mapreduce编程"></a><strong>MPI编程和Mapreduce编程</strong></h1><h1 id="并行算法的一般设计策略"><a href="#并行算法的一般设计策略" class="headerlink" title="并行算法的一般设计策略"></a>并行算法的一般设计策略</h1><h2 id="串行算法的直接并行化"><a href="#串行算法的直接并行化" class="headerlink" title="串行算法的直接并行化"></a>串行算法的直接并行化</h2><ul>
-<li>方法: 发掘和利用现有并行算法的并行性,直接将串行算法改造为并行算法.  <h3 id="积分算法的直接并行化–π的计算"><a href="#积分算法的直接并行化–π的计算" class="headerlink" title="积分算法的直接并行化–π的计算"></a>积分算法的直接并行化–π的计算</h3><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3></li>
+</li>
+<li>增加规模有利于提高加速比的因素： <ul>
+<li>较大的问题规模可以提高较高的并发度  </li>
+<li>额外开销的增加可能慢于有效计算的增加  </li>
+<li>算法中的串行分量比例不是固定不变的(因问题规模增加而缩小)  <h1 id="MPI编程和Mapreduce编程"><a href="#MPI编程和Mapreduce编程" class="headerlink" title="MPI编程和Mapreduce编程"></a><strong>MPI编程和Mapreduce编程</strong></h1>考试都考完了, 这一部分和其他没总结好的部分就鸽了(逃).  <h1 id="并行算法的一般设计策略"><a href="#并行算法的一般设计策略" class="headerlink" title="并行算法的一般设计策略"></a>并行算法的一般设计策略</h1><h2 id="串行算法的直接并行化"><a href="#串行算法的直接并行化" class="headerlink" title="串行算法的直接并行化"></a>串行算法的直接并行化</h2></li>
+</ul>
+</li>
+<li>方法: 发掘和利用现有并行算法的并行性,直接将串行算法改造为并行算法.  </li>
+<li>特点: <ul>
+<li>由串行算法直接并行化的方法是并行算法设计的最常用方法之一.  </li>
+<li>不是所有的串行算法都可以直接并行化.  </li>
+<li>一个好的串行算法未必能并行化为一个好的并行算法.  </li>
+<li>许多数值串行算法可以并行化为有效的数值并行算法.  </li>
+</ul>
+</li>
+</ul>
+<h3 id="积分算法的直接并行化–π的计算"><a href="#积分算法的直接并行化–π的计算" class="headerlink" title="积分算法的直接并行化–π的计算"></a>积分算法的直接并行化–π的计算</h3><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
 <li>枚举排序  </li>
-<li><h2 id="从问题描述开始设计并行算法"><a href="#从问题描述开始设计并行算法" class="headerlink" title="从问题描述开始设计并行算法"></a>从问题描述开始设计并行算法</h2><h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1>很遗憾直到考试结束也没有把并行计算的内容复习完, 好几道题都没有背会, 最后得了85分…<br>据老哥们说这课给分不高来着, 不过就在家的复习状态也认了.  </li>
+<li>冒泡排序并行化–奇偶排序  <h3 id="矩阵转置-点乘与数乘"><a href="#矩阵转置-点乘与数乘" class="headerlink" title="矩阵转置, 点乘与数乘"></a>矩阵转置, 点乘与数乘</h3><h2 id="从问题描述开始设计并行算法"><a href="#从问题描述开始设计并行算法" class="headerlink" title="从问题描述开始设计并行算法"></a>从问题描述开始设计并行算法</h2></li>
+<li>方法: 从问题本身描述出发，不考虑相应的串行算法，设计一个全新的并<br>行算法.    </li>
+<li>特点: <ul>
+<li>挖扼问题的固有特性与并行的关东.  </li>
+<li>设计全新的并行算法是一个挑战性和创造性的工作.  <h3 id="求前缀和"><a href="#求前缀和" class="headerlink" title="求前缀和"></a>求前缀和</h3>年年必考填空.  <h2 id="借用已有算法求解新问题"><a href="#借用已有算法求解新问题" class="headerlink" title="借用已有算法求解新问题"></a>借用已有算法求解新问题</h2></li>
+</ul>
+</li>
+<li>方法: 找出求解问题和禁个已解决问题之间的联系, 改造或利用已知算法应用列求解问题上.  </li>
+<li>特点: <ul>
+<li>这是一项创造性的工作(好水的一句词…).  <h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1>很遗憾直到考试结束也没有把并行计算的内容复习完, 好几道题都没有背会, 最后得了85分…<br>据老哥们说这课给分不高来着, 好像蛮多70+的, 不过就我在家的复习状态高不高的也就认了.  </li>
+</ul>
+</li>
 </ul>
 
             </div>
