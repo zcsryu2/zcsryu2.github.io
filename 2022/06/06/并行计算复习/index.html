@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.4k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      15
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年6月7日 晚上
+                  本文最后更新于：2022年6月19日 晚上
                 
               </p>
             
@@ -311,11 +311,26 @@
 </li>
 <li>公式:<br>  <img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/Amdahl%E5%AE%9A%E5%BE%8B.png" srcset="/img/loading.gif" lazyload alt="公式" title="Amdahl 定律公式">  </li>
 <li>结论:<br>给定一个应用，不断增加并行计算机和处理器数目，不可能无限制的提升加速比.  <h3 id="Gustafson-定律"><a href="#Gustafson-定律" class="headerlink" title="Gustafson 定律"></a>Gustafson 定律</h3></li>
+<li>出发点: <ul>
+<li>大型计算中要求高精度, 同时计算时间不变, 所以需要相应地增多处理器数.  </li>
+<li>增多处理器必须相应地增大问题规模才有实际意义.  </li>
 </ul>
-<h3 id="Sun-and-Ni-定律"><a href="#Sun-and-Ni-定律" class="headerlink" title="Sun and Ni 定律"></a>Sun and Ni 定律</h3><h2 id="可扩放性评测"><a href="#可扩放性评测" class="headerlink" title="可扩放性评测"></a>可扩放性评测</h2><h1 id="MPI编程"><a href="#MPI编程" class="headerlink" title="MPI编程"></a><strong>MPI编程</strong></h1><h1 id="并行算法的一般设计策略"><a href="#并行算法的一般设计策略" class="headerlink" title="并行算法的一般设计策略"></a>并行算法的一般设计策略</h1><h2 id="串行算法的直接并行化"><a href="#串行算法的直接并行化" class="headerlink" title="串行算法的直接并行化"></a>串行算法的直接并行化</h2><ul>
+</li>
+<li>公式:<br>  <img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/Gustafson%E5%AE%9A%E5%BE%8B.png" srcset="/img/loading.gif" lazyload alt="公式" title="Gustafson 定律公式">  </li>
+<li>结论:<br>给定一个应用，不断增加并行计算机和处理器数目，可以无限制的提升加速比. <h3 id="Sun-and-Ni-定律"><a href="#Sun-and-Ni-定律" class="headerlink" title="Sun and Ni 定律"></a>Sun and Ni 定律</h3>Sun-Ni定律是对前两个定律的总括和扩展.  </li>
+<li>出发点:  <ul>
+<li>只要存储空间允许, 应当尽量增大问题规模以产生更好和更精确的解.  </li>
+<li>假定在单节点上使用了全部存储容量M并在相应于W的时间内求解之，此时工作负载W = fW + (1 - f)W.  </li>
+<li>设置因子G(p)表示存储容量增加到p倍时并行工作负载的增加量, 所以扩大后的工作负载W = fW + (1-f)G(p)W.  </li>
+</ul>
+</li>
+<li>存储受限的加速公式:<br>  <font size=5>$S^{“} = \frac{fW + (1 - f)G(p)W}{fW + \frac{(1 - f)G(p)W}{p}} = \frac{f + (1 - f)G(p)}{f + \frac{(1 - f)G(p)}{p}}$</font>  </li>
+<li>并行开销:<br><font size=5>$S^{‘} = \frac{fW + (1 - f)G(p)W}{fW + \frac{(1 - f)G(p)W}{p} + W_{O}} = \frac{f + (1 - f)G(p)}{f + \frac{(1 - f)G(p)}{p} + \frac{W_{O}}{W}}$</font> <h2 id="可扩放性评测"><a href="#可扩放性评测" class="headerlink" title="可扩放性评测"></a>可扩放性评测</h2></li>
+</ul>
+<h1 id="MPI编程和Mapreduce编程"><a href="#MPI编程和Mapreduce编程" class="headerlink" title="MPI编程和Mapreduce编程"></a><strong>MPI编程和Mapreduce编程</strong></h1><h1 id="并行算法的一般设计策略"><a href="#并行算法的一般设计策略" class="headerlink" title="并行算法的一般设计策略"></a>并行算法的一般设计策略</h1><h2 id="串行算法的直接并行化"><a href="#串行算法的直接并行化" class="headerlink" title="串行算法的直接并行化"></a>串行算法的直接并行化</h2><ul>
 <li>方法: 发掘和利用现有并行算法的并行性,直接将串行算法改造为并行算法.  <h3 id="积分算法的直接并行化–π的计算"><a href="#积分算法的直接并行化–π的计算" class="headerlink" title="积分算法的直接并行化–π的计算"></a>积分算法的直接并行化–π的计算</h3><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3></li>
 <li>枚举排序  </li>
-<li><h2 id="从问题描述开始设计并行算法"><a href="#从问题描述开始设计并行算法" class="headerlink" title="从问题描述开始设计并行算法"></a>从问题描述开始设计并行算法</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2></li>
+<li><h2 id="从问题描述开始设计并行算法"><a href="#从问题描述开始设计并行算法" class="headerlink" title="从问题描述开始设计并行算法"></a>从问题描述开始设计并行算法</h2><h1 id="碎碎念"><a href="#碎碎念" class="headerlink" title="碎碎念"></a>碎碎念</h1>很遗憾直到考试结束也没有把并行计算的内容复习完, 好几道题都没有背会, 最后得了85分…<br>据老哥们说这课给分不高来着, 不过就在家的复习状态也认了.  </li>
 </ul>
 
             </div>
