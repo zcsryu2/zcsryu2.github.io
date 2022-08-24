@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      21
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年8月23日 晚上
+                  本文最后更新于：2022年8月24日 下午
                 
               </p>
             
@@ -332,7 +332,9 @@
 </ul>
 <h1 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a><strong>人工神经网络</strong></h1><h2 id="神经网络如何表示与或逻辑"><a href="#神经网络如何表示与或逻辑" class="headerlink" title="神经网络如何表示与或逻辑"></a>神经网络如何表示与或逻辑</h2><p><img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/20220823193718.png" srcset="/img/loading.gif" lazyload alt="20220823193718" title="与逻辑"><br><img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/20220823193757.png" srcset="/img/loading.gif" lazyload alt="20220823193757" title="或逻辑"></p>
 <h2 id="BP神经网络"><a href="#BP神经网络" class="headerlink" title="BP神经网络"></a>BP神经网络</h2><h3 id="前向计算方法"><a href="#前向计算方法" class="headerlink" title="前向计算方法"></a>前向计算方法</h3><p>$ u_{i}^{k} = \sum_{j}w_{ij}^{k-1}y_{j}^{k-1}$<br>$ y_{i}^{k} = f_{k}(u_{i}^{k}) $  </p>
-<h3 id="反向调整方法"><a href="#反向调整方法" class="headerlink" title="反向调整方法"></a>反向调整方法</h3><p>$\Delta w_{ij}^{k-1} = - \varepsilon d_{i}^{k} y_{j}^{k-1}$<br>$d_{i}^{m} = y_{j}^{m}(1-y_{j}^{m})(y_{j}^{m} - y_{si})$<br>$d_{i}^{k} = y_{j}^{k}(1-y_{j}^{k})\Sigma_{i}d_{l}^{k+1}w_{li}^{k}    (k = m-1, …, 2)$  </p>
+<h3 id="反向调整方法"><a href="#反向调整方法" class="headerlink" title="反向调整方法"></a>反向调整方法</h3><p>$\Delta w_{ij}^{k-1} = - \varepsilon d_{i}^{k} y_{j}^{k-1}$  </p>
+<p>$d_{i}^{m} = y_{i}^{m}(1-y_{i}^{m})(y_{i}^{m} - y_{si}) = (y_{i}^{m} - y_{si})f_{m}^{‘}(u_{i}^{m})$  </p>
+<p>$d_{i}^{k} = y_{i}^{k}(1-y_{i}^{k})\Sigma_{i}d_{l}^{k+1}w_{li}^{k} = f_{k}^{‘}(u_{i}^{k})\Sigma_{i}d_{l}^{k+1}w_{li}^{k}    (k = m-1, …, 2)$  </p>
 <h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><p><img src="https://raw.githubusercontent.com/zcsryu2/Blog_images/main/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C.gif" srcset="/img/loading.gif" lazyload alt="卷积神经网络"></p>
 <h1 id="计算智能"><a href="#计算智能" class="headerlink" title="计算智能"></a><strong>计算智能</strong></h1><h2 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h2><ul>
 <li>遗传算法(genetic algorithms, GA): 一类借鉴生物界自然选择和自然遗传机制的随机搜索算法, 非常适用于处理传统搜索方法难以解决的复杂和非线性优化问题.  </li>
